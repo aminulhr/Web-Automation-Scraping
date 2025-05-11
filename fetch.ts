@@ -1,6 +1,5 @@
-fetch("https://example.com")
+console.time("fetch");
+fetch("https://www.example.com/")
   .then((response) => response.text())
   .then((test) => console.log(test))
-  .catch((error) => {
-    console.error("Error fetching the page:", error);
-  });
+  .catch((error) => console.log(error));
