@@ -13,6 +13,7 @@ if (exists) {
   fs.promises.writeFile("example.puppeteer.html", data);
 }
 // *****read data with jsdom*********
+// import { JSDOM } from "jsdom";
 // const dom = new JSDOM(data);
 // const document = dom.window.document;
 // console.log(document.querySelector("a").href);
@@ -21,10 +22,9 @@ if (exists) {
 import puppeteer from "puppeteer";
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
-await page.goto("https://www.example.com/");
-const page = setContent(data);
-await page.pdf({ path: "example.pdf" });
-console.log(await page.evaluate(() =>document.querySelector("h1").innerText;
-));
+// await page.goto("https://www.example.com/");
+await page.setContent(data);
+// await page.pdf({ path: "example.pdf" });
+console.log(await page.evaluate(() => document.querySelector("h1").innerText));
 await page.close();
 await browser.close();
