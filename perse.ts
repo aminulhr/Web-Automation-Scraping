@@ -13,7 +13,9 @@ if (exists) {
   );
   fs.promises.writeFile("example.puppeteer.html", data);
 }
-
+// read data with jsdom
 const dom = new JSDOM(data);
 const document = dom.window.document;
 console.log(document.querySelector("a").href);
+
+//read data with puppeteer
