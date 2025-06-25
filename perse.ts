@@ -1,5 +1,4 @@
 import fs from "fs";
-import { JSDOM } from "jsdom";
 const exists = fs.promises
   .access("example.curl.html", fs.constants.F_ok)
   .then(() => true)
@@ -13,9 +12,19 @@ if (exists) {
   );
   fs.promises.writeFile("example.puppeteer.html", data);
 }
-// read data with jsdom
-const dom = new JSDOM(data);
-const document = dom.window.document;
-console.log(document.querySelector("a").href);
+// *****read data with jsdom*********
+// const dom = new JSDOM(data);
+// const document = dom.window.document;
+// console.log(document.querySelector("a").href);
 
-//read data with puppeteer
+//****read data with puppeteer*****
+import puppeteer from "puppeteer";
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
+await page.goto("https://www.example.com/");
+const page = setContent(data);
+await page.pdf({ path: "example.pdf" });
+console.log(await page.evaluate(() =>document.querySelector("h1").innerText;
+));
+await page.close();
+await browser.close();
