@@ -19,6 +19,9 @@ console.log(document.querySelector("a").href);
 import puppeteer from "puppeteer";
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
+
+await page.pdf({ path: "example.pdf" });
+
 console.log(await page.evaluate(() => document.querySelector("h1")?.innerText));
 await page.close();
 await browser.close();

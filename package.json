@@ -12,6 +12,9 @@
   "type": "module",
   "dependencies": {
     "jsdom": "^26.1.0",
-    "puppeteer": "^24.8.2"
+    "puppeteer": "^24.10.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
   }
 }
