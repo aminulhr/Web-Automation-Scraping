@@ -16,7 +16,12 @@ if (exists) {
 import { JSDOM } from "jsdom";
 const dom = new JSDOM(data);
 const document = dom.window.document;
-console.log(document.querySelector("a").href);
+const link = document.querySelector("a");
+if (link) {
+  console.log(link.href);
+} else {
+  console.log("No <a> element found");
+}
 
 //****read data with puppeteer*****
 import puppeteer from "puppeteer";
