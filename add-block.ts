@@ -20,7 +20,7 @@ async function main() {
       }
     `,
   });
-
-  //   await browser.close();
+  await page.screenshot({ path: "prothomalo.png" });
+  await browser.close();
 }
 main().catch(console.error);
